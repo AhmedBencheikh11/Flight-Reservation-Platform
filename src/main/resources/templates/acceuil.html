@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Agence de Voyage</title>
+  <script th:src="@{https://kit.fontawesome.com/a076d05399.js}" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+        th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css}"/>
+  <link rel="stylesheet" th:href="@{/css/style2.css}"/>
+</head>
+<body>
+
+  <!-- Flash message -->
+  <div th:if="${successMessage}"
+       class="alert alert-success"
+       role="alert"
+       style="position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:1000;">
+    <span th:text="${successMessage}"></span>
+  </div>
+
+  <header class="banner">
+    <div class="header-content">
+      <img th:src="@{/images/logo.png}" alt="Logo" class="logo"/>
+      <h1 class="title">Explorez le monde avec nous</h1>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        <li><a th:href="@{/acceuil}"><i class="bi bi-house-door"></i> Accueil</a></li>
+        <li><a th:href="@{/vol}"><i class="bi bi-airplane"></i> Vol</a></li>
+        <li><a th:href="@{/contact}"><i class="bi bi-telephone"></i> Contactez-nous</a></li>
+        <li><a th:href="@{/userspace}"><i class="bi bi-person-fill"></i> Mon Espace</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="flights-section">
+    <h2 class="section-title">Nos Vols Disponibles</h2>
+
+    <!-- Admin-only button -->
+    <div class="add-button-container" th:if="${isAdmin}" style="text-align:center; margin-bottom:20px;">
+      <a th:href="@{/users}" class="btn btn-primary">Voir la liste des utilisateurs</a>
+    </div>
+     <div class="add-button-container" th:if="${isAdmin}" style="text-align:center; margin-bottom:20px;">
+      <a th:href="@{/reservations}" class="btn btn-primary">Voir la liste des reservations</a>
+    </div>
+
+    <div class="flights-container">
+      <!-- Example flight -->
+      <div class="flight-card">
+        <img th:src="@{/images/paris.jpg}" alt="Vol" class="flight-img"/>
+        <div class="flight-info">
+          <img th:src="@{/images/image1.png}" alt="avion" class="flight-icon"/>
+          <h3>Paris</h3>
+          <p>Voyagez vers la capitale romantique du monde.</p>
+          <p>Aéroport: Tunis Carthage</p>
+          <p>Prix: 450 TND</p>
+        </div>
+      </div>
+      <!-- Repeat for other flights… -->
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>📧 contact@agencevoyage.tn | ☎️ +216 99 999 999</p>
+    <p>📍 Rue exemple, Bizerte, Tunisie</p>
+  </footer>
+
+  <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

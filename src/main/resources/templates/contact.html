@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="stylesheet"
+        th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}" />
+  <link rel="stylesheet"
+        th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css}" />
+  <link rel="stylesheet" th:href="@{/css/style3.css}" />
+</head>
+<body>
+
+  <!-- En-tête -->
+  <header class="banner">
+    <div class="header-content">
+      <img th:src="@{/images/logo.png}" alt="Logo" class="logo" />
+      <h1 class="title">Explorez le monde avec nous</h1>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        <li><a th:href="@{/acceuil}"><i class="bi bi-house-door"></i> Accueil</a></li>
+        <li><a th:href="@{/vol}"><i class="bi bi-airplane"></i> Vol</a></li>
+        <li><a th:href="@{/contact}"><i class="bi bi-telephone"></i> Contactez-nous</a></li>
+        <!-- Removed À propos -->
+        <li><a th:href="@{/userspace}"><i class="bi bi-person-fill"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section Contact -->
+  <main class="contact-container">
+
+    <!-- Informations de contact -->
+    <section class="contact-box">
+      <h3><i class="fas fa-phone-alt"></i> Nous contacter</h3>
+      <p>
+        Vous avez besoin d'une information, d'un conseil, d'une assistance ou vous souhaitez réserver un billet ? Notre service client est à votre écoute.
+      </p>
+      <div class="phone-numbers">
+        <span class="phone-number"><i class="fas fa-phone"></i> +216 99999999</span>
+        <span class="phone-number"><i class="fas fa-phone"></i> +216 22222222</span>
+        <span class="phone-number"><i class="fas fa-phone"></i> +216 55555555</span>
+      </div>
+      <p>Ou écrivez-nous à : <span class="email">contact@agencevoyage.tn</span></p>
+      <a href="#" class="call-btn"><i class="fas fa-phone"></i> Appeler le service client</a>
+    </section>
+
+    <!-- Formulaire de réclamation -->
+    <section class="reclamation-box">
+      <h3><i class="fas fa-comment-alt"></i> Déposer une réclamation</h3>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Nom et Prénom</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="reclamation">Votre réclamation</label>
+          <textarea id="reclamation" name="reclamation" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Envoyer la réclamation
+        </button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="footer">
+    <p>📧 contact@agencevoyage.tn | ☎️ +216 99 999 999</p>
+    <p>📍 Rue exemple, Bizerte, Tunisie</p>
+  </footer>
+
+</body>
+</html>

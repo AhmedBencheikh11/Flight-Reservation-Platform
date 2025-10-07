@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription / Connexion</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+  <div class="container" id="container">
+
+    <!-- Formulaire d'inscription -->
+    <div class="form-container sign-up-container">
+      <form th:action="@{/register}" th:object="${userForm}" method="post">
+        <h1>Créer un compte</h1>
+
+        <!-- Erreurs par champ -->
+        <div th:if="${#fields.hasErrors('nom')}" style="color:red" th:errors="*{nom}">Nom error</div>
+        <input type="text" th:field="*{nom}" placeholder="Nom" required />
+
+        <div th:if="${#fields.hasErrors('prenom')}" style="color:red" th:errors="*{prenom}">Prénom error</div>
+        <input type="text" th:field="*{prenom}" placeholder="Prénom" required />
+
+        <div th:if="${#fields.hasErrors('mail')}" style="color:red" th:errors="*{mail}">Email error</div>
+        <input type="email" th:field="*{mail}" placeholder="Email" required />
+
+        <div th:if="${#fields.hasErrors('password')}" style="color:red" th:errors="*{password}">Mot de passe error</div>
+        <input type="password" th:field="*{password}" placeholder="Mot de passe" required />
+
+        <!-- Erreur email déjà utilisé -->
+        <div th:if="${emailError}" style="color: red;">
+          <p th:text="${emailError}"></p>
+        </div>
+
+        <button type="submit">S'inscrire</button>
+      </form>
+    </div>
+
+    <!-- Formulaire de connexion -->
+    <div class="form-container sign-in-container">
+      <form th:action="@{/login}" method="post">
+        <h1>Connexion</h1>
+
+        <!-- Erreur de connexion -->
+        <div th:if="${loginError}" style="color: red;">
+          <p th:text="${loginError}"></p>
+        </div>
+
+        <input type="email" name="mail" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Mot de passe" required />
+
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+
+    <!-- Overlay panels -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Bienvenue !</h1>
+          <p>Vous avez déjà un compte ? Connectez-vous ici.</p>
+          <button type="button" class="ghost" id="signIn">Se connecter</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Bonjour Voyageur !</h1>
+          <p>Inscrivez-vous pour démarrer l’aventure.</p>
+          <button type="button" class="ghost" id="signUp">S'inscrire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

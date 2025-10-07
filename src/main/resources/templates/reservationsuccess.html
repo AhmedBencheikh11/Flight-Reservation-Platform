@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservation Réussie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .qr-code {
+      max-width: 300px;
+      margin: 2rem auto;
+    }
+
+    .message {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="qr-code">
+    <img src="/images/qrcode.png" alt="QR Code" />
+  </div>
+
+  <div class="message">
+    Votre réservation a été effectuée.<br>
+    Vous pouvez télécharger ce QR code et le présenter à l'aéroport<br>
+    comme remplacement du billet physique.
+  </div>
+
+  <a href="/acceuil" class="btn">Retour à l'accueil</a>
+
+</body>
+</html>

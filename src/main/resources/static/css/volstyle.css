@@ -1,0 +1,149 @@
+/* volstyle.css */
+
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Fond de page identique à stylevol */
+body {
+  background: url('/images/back.jpg') no-repeat center 30% / 100% auto;
+}
+
+/* Container plus large et centré */
+.form-container {
+  max-width: 800px;
+  width: 90%;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre du formulaire */
+.form-container h1 {
+  text-align: center;
+  color: #1e3c72;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* Layout grille pour labels & champs */
+.form-group {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-row-gap: 25px;    /* Espace vertical important */
+  grid-column-gap: 30px; /* Espace horizontal important */
+  align-items: center;
+  margin-bottom: 30px;   /* Marge en dessous de chaque groupe */
+}
+
+.form-group label {
+  justify-self: end;    /* Aligne le label à droite */
+  font-weight: bold;
+  color: #2a5298;
+}
+
+/* Champs de saisie agrandis */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;           /* Plus de padding interne */
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  min-height: 45px;        /* Hauteur minimum pour inputs */
+}
+
+/* Textarea encore plus grand */
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Focus state */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #2a5298;
+  outline: none;
+}
+
+/* Boutons alignés et espacés */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.form-buttons .btn {
+  flex: 1;
+  margin: 0 10px;
+  padding: 15px 0;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-buttons .btn:first-child {
+  margin-left: 0;
+}
+
+.form-buttons .btn:last-child {
+  margin-right: 0;
+}
+
+/* Style du bouton de soumission */
+.btn-submit {
+  background-color: #1e3c72;
+  color: white;
+}
+
+.btn-submit:hover {
+  background-color: #2a5298;
+}
+
+/* Style du bouton Annuler */
+.btn-cancel {
+  background-color: #ccc;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.1rem;
+}
+
+.btn-cancel:hover {
+  background-color: #999;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr;
+    grid-row-gap: 15px;
+  }
+
+  .form-group label {
+    justify-self: start;
+    margin-bottom: 5px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .form-buttons .btn {
+    margin: 5px 0;
+  }
+}

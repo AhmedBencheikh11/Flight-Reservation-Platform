@@ -1,0 +1,71 @@
+<!-- src/main/resources/templates/vol-edit.html -->
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Modifier un vol</title>
+  <link href="/css/volstyle.css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <nav><a href="/vol">← Retour à la liste des vols</a></nav>
+</header>
+
+<main>
+  <div class="form-container">
+    <h1>Modifier le vol</h1>
+
+    <form th:action="@{'/vol/edit/' + ${vol.id_vol}}" th:object="${vol}" method="post">
+      <input type="hidden" th:field="*{id_vol}" />
+
+      <div class="form-group">
+        <label for="dateVol">Date du vol :</label>
+        <input type="date" id="dateVol" th:field="*{dateVol}" />
+        <div th:if="${#fields.hasErrors('dateVol')}" th:errors="*{dateVol}" class="field-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="tempsDepart">Heure de départ :</label>
+        <input type="time" id="tempsDepart" th:field="*{tempsDepart}" />
+        <div th:if="${#fields.hasErrors('tempsDepart')}" th:errors="*{tempsDepart}" class="field-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="dureeVoyage">Durée du voyage :</label>
+        <input type="text" id="dureeVoyage" th:field="*{dureeVoyage}" placeholder="Ex: PT2H30M" />
+        <div th:if="${#fields.hasErrors('dureeVoyage')}" th:errors="*{dureeVoyage}" class="field-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="destination">Destination :</label>
+        <input type="text" id="destination" th:field="*{destination}" />
+        <div th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}" class="field-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="prix">Prix (TND) :</label>
+        <input type="number" step="0.01" id="prix" th:field="*{prix}" />
+        <div th:if="${#fields.hasErrors('prix')}" th:errors="*{prix}" class="field-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description :</label>
+        <textarea id="description" th:field="*{description}"></textarea>
+        <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="field-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="nbPlaces">Nombre de places :</label>
+        <input type="number" id="nbPlaces" th:field="*{nbPlaces}" min="1" />
+        <div th:if="${#fields.hasErrors('nbPlaces')}" th:errors="*{nbPlaces}" class="field-error"></div>
+      </div>
+
+      <div class="form-buttons">
+        <button type="submit" class="btn btn-submit">Enregistrer les modifications</button>
+        <a th:href="@{/vol}" class="btn btn-cancel">Annuler</a>
+      </div>
+    </form>
+  </div>
+</main>
+</body>
+</html>

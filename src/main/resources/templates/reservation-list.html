@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Réservations</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+    <h1>Liste des Réservations</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Utilisateur</th>
+                <th>ID Réservation</th>
+                <th>ID Vol</th>
+                <th>Numéro de Passeport</th>
+                <th>Destination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="reservation : ${reservations}">
+                <td th:text="${reservation.user}">User ID</td>
+                <td th:text="${reservation.id_reservation}">Reservation ID</td>
+                <td th:text="${reservation.vol}">Vol ID</td>
+                <td th:text="${reservation.passportNumber}">Passport Number</td>
+                <td th:text="${reservation.destination}">Destination</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a th:href="@{/acceuil}">Retour à l'accueil</a>
+
+</body>
+</html>

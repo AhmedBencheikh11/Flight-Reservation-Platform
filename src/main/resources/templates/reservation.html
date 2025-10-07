@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Reservation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:href="@{/css/style4.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    .container { display: flex; gap: 2rem; margin: 2rem; }
+    .flight-summary, .booking-form { flex: 1; padding: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+    .booking-form form { display: flex; flex-direction: column; gap: 1rem; }
+    .booking-form label { font-weight: bold; }
+    .btn-submit { padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <!-- Header omitted for brevity -->
+
+  <main class="reservation-section">
+    <div class="container">
+      
+      <!-- Flight Details -->
+      <div class="flight-summary">
+        <h2>Flight Details</h2>
+        <p><strong>Destination:</strong> <span th:text="${vol.destination}">—</span></p>
+        <p><strong>Description:</strong> <span th:text="${vol.description}">—</span></p>
+        <p><strong>Departure Date:</strong>
+          <span th:text="${#dates.format(vol.dateVol, 'yyyy-MM-dd')}">—</span>
+        </p>
+        <p><strong>Departure Time:</strong>
+          <span th:text="${vol.tempsDepart}">—</span>
+        </p>
+        <p><strong>Duration:</strong>
+          <span th:text="${vol.dureeVoyage}">—</span>
+        </p>
+        <p><strong>Seats Available:</strong>
+          <span th:text="${vol.nbPlaces}">—</span>
+        </p>
+        <p><strong>Price:</strong>
+          <span th:text="${vol.prix}">—</span> TND
+        </p>
+      </div>
+
+      <!-- Reservation Form -->
+      <div class="booking-form">
+        <h2>Make a Reservation</h2>
+        <form th:action="@{/vol/reservation}" method="post">
+          <!-- Pass the selected flight ID -->
+          <input type="hidden" name="volId" th:value="${vol.id_vol}" />
+
+          <!-- Passport Number -->
+          <div>
+            <label for="passportNumber">Passport Number</label>
+            <input type="text"
+                  id="passportNumber"
+                  name="passportNumber"
+                  placeholder="e.g. AB123456"
+                  required />
+          </div>
+
+          <!-- Provisional Visa Card Input -->
+          <div>
+            <label for="visaCard">Visa Card Number (provisoire)</label>
+            <input type="text"
+                  id="visaCard"
+                  name="visaCard"
+                  placeholder="Enter your card number here..."
+                  required />
+          </div>
+
+          <button type="submit" class="btn-submit">
+            <i class="bi bi-check-circle"></i> Confirm Reservation
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 1rem;">
+      <a th:href="@{/vol}" class="btn">
+        ← Back to Flights
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer omitted for brevity -->
+</body>
+</html>
