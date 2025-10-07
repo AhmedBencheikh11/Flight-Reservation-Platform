@@ -23,24 +23,24 @@ This project is a **full-stack flight reservation platform** simulating an onlin
 ### 1. Authentication and Authorization System 🔐
 * **User Registration** (`Créer un compte`): Allows new users to create an account with name, first name, email, and password.
 * **User Login** (`Se connecter`): Secure access to the personal area using **Spring Security**.
-![Alt Text](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\2.png)
-![Alt Text](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\1.png)
+![App Screenshot](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\2.png)
+![App Screenshot](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\1.png)
 
 ### 2. Flight and Booking Management
 * **Available Flights Display** (`Nos Vols Disponibles`): Clear presentation of destinations, departure airports, and prices.
 * **Booking Module**: Enables users to select and confirm a flight reservation.
-![Alt Text](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\3.png)
+![App Screenshot](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\3.png)
 * **User Space (`Mon Espace`)**: Allows users to view and modify their personal profile and view their booking history.
-![Alt Text](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\5.png)
+![App Screenshot](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\5.png)
     * **Profile Modification** (`Modifier mon profil`): Option to update the user's details and password.
-    ![Alt Text](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\6.png)
+    ![App Screenshot](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\6.png)
 
 ### 3. Administration
 * **Admin Interface**: Implements **CRUD** (Create, Read, Update, Delete) operations for managing flights and user accounts (built upon the RESTful API).
 
 ### 4. Communication and Contact 💬
 * **Contact Us Page** (`Contactez-nous`): Provides agency contact details and a form for submitting complaints/claims (`Déposer une réclamation`).
-![Alt Text](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\4.png)
+![App Screenshot](C:\Users\MSI\OneDrive\Bureau\PFA\src\main\resources\static\images\4.png)
 
 ---
 
